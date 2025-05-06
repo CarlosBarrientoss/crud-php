@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -133,6 +139,7 @@
 					   $_GET["pagina"] == "ingreso" ||
 					   $_GET["pagina"] == "inicio" ||
                        $_GET["pagina"] == "inventario" ||
+                       $_GET["pagina"] == "editar" ||
 					   $_GET["pagina"] == "salir"){
 
 						include "paginas/".$_GET["pagina"].".php";

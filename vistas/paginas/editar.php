@@ -1,7 +1,8 @@
+
 <div class="container-fluid">
 		
 	<div class="container py-5">
-
+<h1>Actualizar</h1>
         <div class="d-flex justify-content-center text-center py-3">
 
             <form class="p-5 bg-light" method="post">
@@ -22,7 +23,7 @@
 
                             </div>
             
-                        <input type="text" class="form-control" id="nombre" name="registroNombre">
+                        <input type="text" class="form-control" id="nombre" name="actualizarNombre">
             
                     </div>
                         
@@ -44,7 +45,7 @@
 
                         </div>
             
-                        <input type="text" class="form-control" id="telefono" name="registroTelefono">
+                        <input type="text" class="form-control" id="telefono" name="actualizarTelefono">
             
                     </div>
                         
@@ -66,7 +67,7 @@
 
                         </div>
             
-                        <input type="email" class="form-control" id="correo" name="registroCorreo">
+                        <input type="email" class="form-control" id="correo" name="actualizarCorreo">
                         
                     </div>
                         
@@ -88,7 +89,7 @@
 
                         </div>
             
-                        <input type="password" class="form-control" id="clave" name="registroClave">
+                        <input type="password" class="form-control" id="clave" name="actualizarClave">
             
                     </div>
             
@@ -101,9 +102,9 @@
                     =============================================*/
 
                     // Método estático para registrar
-                    $registro = ControladorRegistro::ctrRegistro();
+                    $actualizar = ControladorRegistro::ctrActualizar();
 
-                    if ($registro === 'ok') {
+                    if ($actualizar === 'ok') {
                         // Evita reenvío del formulario al refrescar la página
                         //uso de heredoc (<<<HTML):
                         //Facilita la inclusión de HTML y JS con múltiples líneas sin necesidad de múltiples echo y mejora la legibilidad.
@@ -113,7 +114,7 @@
                                     window.history.replaceState(null, null, window.location.href);
                                 }
                             </script>
-                            <div class="alert alert-success">El usuario ha sido registrado</div>
+                            <div class="alert alert-success">El usuario ha sido actualizadp</div>
                         HTML;
                     }
 
@@ -121,7 +122,7 @@
 
 
 
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
             
             </form>
             

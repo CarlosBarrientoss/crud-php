@@ -28,7 +28,7 @@ class ModeloRegistro {
     /*=============================================
     Seleccionar Registros
     =============================================*/
-    static public function mdlSeleccionarRegistro($tabla, $item = null, $valor = null){
+    static public function mdlSeleccionarRegistro($tabla, $item, $valor){
 
         if ($item === null && $valor === null) {
 
@@ -77,6 +77,28 @@ class ModeloRegistro {
             return $dato;
         }
 
+    }
+
+     /*=============================================
+    Actualizar Registros
+    =============================================*/
+
+    public static function mdlActualizarRegistro($tabla, $datos) {
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, telefono = :telefono, correo = :correo, clave = :clave WHERE id_registro = :id");
+
+        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+        $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+        $stmt->bindParam(":correo", $datos["correo"], PDO::PARAM_STR);
+        $stmt->bindParam(":clave", $datos["clave"], PDO::PARAM_STR);
+        $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+
+        $stmt = null;
     }
 
 }

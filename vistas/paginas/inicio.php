@@ -1,4 +1,10 @@
 <?php
+
+if (!isset($_SESSION["validarIngreso"]) || $_SESSION["validarIngreso"] !== "ok") {
+    header("Location: index.php?pagina=ingreso");
+    exit;
+}
+
 // Obtenemos todos los registros de la tabla "registros"
 $registros = ControladorRegistro::ctrSeleccionarRegistro();
 ?>
@@ -31,13 +37,12 @@ $registros = ControladorRegistro::ctrSeleccionarRegistro();
                                             name="idRegistro"
                                             value="<?= htmlspecialchars($registro['id'], ENT_QUOTES, 'UTF-8') ?>"
                                         >
-                                        <button
-                                            type="submit"
-                                            name="edit"
-                                            class="btn btn-warning"
-                                        >
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </button>
+                                        <div class="px-1">
+                                            <a href="index.php?pagina=editar&id=<?php echo $registro['id']; ?>" class="btn btn-warning">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                        
+
                                         <button
                                             type="submit"
                                             name="delete"
@@ -46,6 +51,7 @@ $registros = ControladorRegistro::ctrSeleccionarRegistro();
                                         >
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
+                                        </div>
                                     </form>
                                 </div>
                             </td>
